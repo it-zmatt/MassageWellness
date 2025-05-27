@@ -4,7 +4,7 @@ A modern, responsive website for professional massage therapy and personal train
 
 ## 🌟 Live Demo
 
-[View Live Website](https://your-domain.com) *(Replace with your actual deployment URL)*
+[View Live Website](https://My-domain.com) *(Replace with My actual deployment URL)*
 
 ## 📸 Preview
 
@@ -54,7 +54,7 @@ A modern, responsive website for professional massage therapy and personal train
 
 ### Clone the Repository
 ```bash
-git clone https://github.com/yourusername/neurogym-website.git
+git clone https://github.com/Myusername/neurogym-website.git
 cd neurogym-website
 ```
 
@@ -139,7 +139,7 @@ neurogym-website/
    - Publish directory: `dist`
 
 ### Vercel Deployment
-1. Connect your GitHub repository to Vercel
+1. Connect My GitHub repository to Vercel
 2. Configure build settings:
    - Framework Preset: Vite
    - Build command: `npm run build`
@@ -147,8 +147,8 @@ neurogym-website/
 
 ### Manual Deployment
 1. Run `npm run build`
-2. Upload the contents of the `dist` folder to your web server
-3. Configure your server to serve the `index.html` file for all routes
+2. Upload the contents of the `dist` folder to My web server
+3. Configure My server to serve the `index.html` file for all routes
 
 ## 🎨 Customization
 
@@ -183,17 +183,17 @@ neurogym-website/
 
 **All Rights Reserved**
 
-Copyright © 2024 LOLO. All rights reserved.
+Copyright © 2025 Mohamed Taous. All rights reserved.
 
 This project and its contents are proprietary and confidential. No part of this software may be reproduced, distributed, or transmitted in any form or by any means, including photocopying, recording, or other electronic or mechanical methods, without the prior written permission of the copyright holder.
 
 ## 👨‍💻 Author
 
-**LOLO**
-- Website: [Your Website](https://your-website.com)
-- Email: [your-email@example.com](mailto:your-email@example.com)
-- LinkedIn: [Your LinkedIn](https://linkedin.com/in/yourprofile)
-- GitHub: [Your GitHub](https://github.com/yourusername)
+**Mohamed Taous**
+- Website: [My Website](https://moestudio.tech)
+- Twitter: [My Twitter](https://x.com/moetao_)
+- GitHub: [My LinkedIn](https://github.com/it-zmatt)
+- LinkedIn: [My GitHub](https://www.linkedin.com/in/mohamed-taous-data-engineer/)
 
 ## 🤝 Contributing
 
@@ -211,9 +211,9 @@ This is a proprietary project. For any suggestions or improvements, please conta
 ## 📞 Support
 
 For technical support or questions about this project, please contact:
-- Email: [support@your-domain.com](mailto:support@your-domain.com)
+- Email: [support@My-domain.com](mailto:support@My-domain.com)
 - Phone: +1 (XXX) XXX-XXXX
 
 ---
 
-**Built with ❤️ by LOLO** | **© 2024 All Rights Reserved** 
+**Built with ❤️ by Mohamed Taous** | **© 2025 All Rights Reserved** 
