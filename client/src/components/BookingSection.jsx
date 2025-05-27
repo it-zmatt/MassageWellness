@@ -1,38 +1,6 @@
 import { motion } from "framer-motion";
-import { useState } from "react";
 
 const BookingSection = () => {
-  const [selectedTime, setSelectedTime] = useState('');
-  const [formData, setFormData] = useState({
-    service: '',
-    date: '',
-    name: '',
-    phone: '',
-    email: '',
-    notes: ''
-  });
-
-  const timeSlots = ['9:00 AM', '10:30 AM', '12:00 PM', '2:00 PM', '3:30 PM', '5:00 PM'];
-  
-  const services = [
-    'Massage Therapy (60 min) - $120',
-    'Personal Training (60 min) - $85',
-    'Combination Package - $180',
-    '3-Session Package - $500'
-  ];
-
-  const handleInputChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
-
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    alert('Thank you for your booking request! We will contact you within 24 hours to confirm your appointment.');
-  };
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -63,194 +31,120 @@ const BookingSection = () => {
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-12"
+          className="text-center"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Book Your Session</h2>
-          <p className="text-xl text-gray-600">Choose your preferred service and time slot</p>
-        </motion.div>
+          <h2 className="text-4xl font-bold text-gray-900 mb-6">Ready to Start Your Wellness Journey?</h2>
+          <p className="text-xl text-gray-600 mb-12 max-w-2xl mx-auto">
+            Book your personalized massage therapy or personal training session today and take the first step towards a healthier, pain-free life.
+          </p>
 
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="bg-white rounded-2xl shadow-2xl p-8"
-        >
-          <motion.form 
+          <motion.div 
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
-            onSubmit={handleSubmit}
-            className="space-y-6"
+            whileInView="visible"
+            viewport={{ once: true }}
+            className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16"
           >
-            {/* Service Selection */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.div variants={itemVariants}>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">Select Service</label>
-                <select 
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  required
-                >
-                  <option value="">Choose a service...</option>
-                  {services.map((service, index) => (
-                    <option key={index} value={service}>{service}</option>
-                  ))}
-                </select>
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">Preferred Date</label>
-                <input 
-                  type="date" 
-                  name="date"
-                  value={formData.date}
-                  onChange={handleInputChange}
-                  min={new Date().toISOString().split('T')[0]}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  required
-                />
-              </motion.div>
-            </div>
-
-            {/* Time Selection */}
-            <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold text-gray-900 mb-3">Available Times</label>
-              <div className="grid grid-cols-3 md:grid-cols-6 gap-3">
-                {timeSlots.map((time, index) => (
-                  <motion.button 
-                    key={index}
-                    type="button"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    onClick={() => setSelectedTime(time)}
-                    className={`px-4 py-2 border rounded-lg transition-colors text-sm font-medium ${
-                      selectedTime === time 
-                        ? 'bg-teal-500 text-white border-teal-500' 
-                        : 'border-gray-300 hover:border-teal-500 hover:bg-teal-50'
-                    }`}
-                  >
-                    {time}
-                  </motion.button>
-                ))}
-              </div>
-            </motion.div>
-
-            {/* Contact Information */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <motion.div variants={itemVariants}>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">Full Name</label>
-                <input 
-                  type="text" 
-                  name="name"
-                  value={formData.name}
-                  onChange={handleInputChange}
-                  placeholder="Enter your full name" 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  required
-                />
-              </motion.div>
-
-              <motion.div variants={itemVariants}>
-                <label className="block text-sm font-semibold text-gray-900 mb-3">Phone Number</label>
-                <input 
-                  type="tel" 
-                  name="phone"
-                  value={formData.phone}
-                  onChange={handleInputChange}
-                  placeholder="(613) 000-0000" 
-                  className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                  required
-                />
-              </motion.div>
-            </div>
-
-            <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold text-gray-900 mb-3">Email Address</label>
-              <input 
-                type="email" 
-                name="email"
-                value={formData.email}
-                onChange={handleInputChange}
-                placeholder="your.email@example.com" 
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent"
-                required
-              />
-            </motion.div>
-
-            {/* Special Requests */}
-            <motion.div variants={itemVariants}>
-              <label className="block text-sm font-semibold text-gray-900 mb-3">Special Requests or Health Notes</label>
-              <textarea 
-                name="notes"
-                value={formData.notes}
-                onChange={handleInputChange}
-                rows="4" 
-                placeholder="Please share any relevant health information, injuries, or specific areas of focus..." 
-                className="w-full px-4 py-3 border border-gray-300 rounded-xl focus:ring-2 focus:ring-teal-500 focus:border-transparent resize-none"
-              />
-            </motion.div>
-
-            {/* Booking Button */}
-            <motion.div variants={itemVariants} className="text-center pt-4">
-              <motion.button 
-                type="submit"
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-teal-500 text-white px-12 py-4 rounded-xl font-semibold text-lg hover:bg-teal-600 transition-all duration-200 shadow-lg"
-              >
-                Confirm Booking
-              </motion.button>
-              <p className="text-sm text-gray-500 mt-3">
-                We'll contact you within 24 hours to confirm your appointment
-              </p>
-            </motion.div>
-          </motion.form>
+            <motion.a 
+              variants={itemVariants}
+              href="tel:+16135551234"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-teal-500 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-teal-600 transition-all duration-200 shadow-lg flex items-center space-x-3"
+            >
+              <i className="fas fa-phone"></i>
+              <span>Call Now: (613) 555-1234</span>
+            </motion.a>
+            
+            <motion.a 
+              variants={itemVariants}
+              href="mailto:info@neurogym.ca"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-blue-800 text-white px-10 py-4 rounded-xl font-semibold text-lg hover:bg-blue-900 transition-all duration-200 shadow-lg flex items-center space-x-3"
+            >
+              <i className="fas fa-envelope"></i>
+              <span>Email Us</span>
+            </motion.a>
+          </motion.div>
         </motion.div>
 
-        {/* Quick Contact Options */}
+        {/* Service Cards */}
+        <motion.div 
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          viewport={{ once: true }}
+          className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12"
+        >
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="bg-white rounded-2xl p-8 shadow-lg text-center"
+          >
+            <div className="w-16 h-16 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i className="fas fa-spa text-white text-2xl"></i>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Massage Therapy</h3>
+            <p className="text-gray-600 mb-6">Professional therapeutic massage to relieve pain and improve mobility</p>
+            <div className="text-3xl font-bold text-teal-500 mb-4">$120</div>
+            <p className="text-gray-500">60 minutes</p>
+          </motion.div>
+
+          <motion.div 
+            whileHover={{ scale: 1.02 }}
+            className="bg-white rounded-2xl p-8 shadow-lg text-center"
+          >
+            <div className="w-16 h-16 bg-blue-800 rounded-full flex items-center justify-center mx-auto mb-6">
+              <i className="fas fa-dumbbell text-white text-2xl"></i>
+            </div>
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">Personal Training</h3>
+            <p className="text-gray-600 mb-6">Customized fitness programs designed to help you reach your goals</p>
+            <div className="text-3xl font-bold text-blue-800 mb-4">$85</div>
+            <p className="text-gray-500">60 minutes</p>
+          </motion.div>
+        </motion.div>
+
+        {/* Contact Information */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.4 }}
           viewport={{ once: true }}
-          className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-6"
+          className="bg-white rounded-2xl p-8 shadow-lg text-center"
         >
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="bg-white rounded-xl p-6 shadow-lg text-center"
-          >
-            <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i className="fas fa-phone text-white"></i>
+          <h3 className="text-2xl font-bold text-gray-900 mb-6">Contact Information</h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-3">
+                <i className="fas fa-map-marker-alt text-white"></i>
+              </div>
+              <p className="text-gray-600 text-center">123 Bank Street<br />Ottawa, ON K1P 5N2</p>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Call to Book</h3>
-            <p className="text-gray-600 mb-3">Speak directly with our team</p>
-            <a 
-              href="tel:+16135551234" 
-              className="text-teal-500 font-semibold hover:text-teal-600 transition-colors"
-            >
-              (613) 555-1234
-            </a>
-          </motion.div>
-
-          <motion.div 
-            whileHover={{ scale: 1.02 }}
-            className="bg-white rounded-xl p-6 shadow-lg text-center"
-          >
-            <div className="w-12 h-12 bg-blue-800 rounded-full flex items-center justify-center mx-auto mb-4">
-              <i className="fas fa-envelope text-white"></i>
+            
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-3">
+                <i className="fas fa-phone text-white"></i>
+              </div>
+              <a href="tel:+16135551234" className="text-teal-500 font-semibold hover:text-teal-600 transition-colors">
+                (613) 555-1234
+              </a>
             </div>
-            <h3 className="font-semibold text-gray-900 mb-2">Email Us</h3>
-            <p className="text-gray-600 mb-3">Get a response within 4 hours</p>
-            <a 
-              href="mailto:info@neurogym.ca" 
-              className="text-blue-800 font-semibold hover:text-blue-900 transition-colors"
-            >
-              info@neurogym.ca
-            </a>
-          </motion.div>
+            
+            <div className="flex flex-col items-center">
+              <div className="w-12 h-12 bg-teal-500 rounded-full flex items-center justify-center mb-3">
+                <i className="fas fa-envelope text-white"></i>
+              </div>
+              <a href="mailto:info@neurogym.ca" className="text-teal-500 font-semibold hover:text-teal-600 transition-colors">
+                info@neurogym.ca
+              </a>
+            </div>
+          </div>
+          
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl">
+            <p className="text-gray-600">
+              <strong>Business Hours:</strong> Mon-Fri: 8AM-8PM | Sat: 9AM-5PM | Sun: 10AM-4PM
+            </p>
+          </div>
         </motion.div>
       </div>
     </section>
