@@ -1,0 +1,47 @@
+Build a modern, responsive React + Tailwind CSS landing page for a massage therapy and personal training clinic called NeuroGym. This is a frontend-only project — no backend, routing, or other programming languages. Use Framer Motion for subtle scroll-triggered animations and button interactions.
+🧠 Project Summary
+Business Name: NeuroGym
+Services Offered: Registered Massage Therapy & Personal Training
+Goal: Showcase services and encourage booking interest
+Audience: Adults in Ottawa looking for pain relief, recovery, or wellness
+Tone: Calm, clean, and professional
+📄 Page Structure (Single Page Only)
+Hero Section: Headline, subheading, and primary CTA (“Book Now”)
+Services Section: Massage Therapy & Personal Training presented in responsive cards
+Bio Section: Profile of Peng Tan with photo and certifications
+Testimonials Section: Slider of dummy testimonials with stars
+Booking Section: Non-functional booking UI (dropdowns, time selector, button)
+Footer: Contact info, Google Maps link, and cancellation policy
+🖋️ Copy Guidelines
+Headline: “Book a Healthier, Pain-Free Life with NeuroGym”
+Subheadline: “Personalized massage and training sessions that meet your needs”
+CTAs: “Book Your Session”, “View Availability”, “Contact Us”
+🎨 Design Requirements
+Framework: React (JSX) with Tailwind CSS only
+Color Palette: Tailwind colors (teal-500, gray-100, white, blue-800)
+Typography: Tailwind utilities like text-2xl font-bold, text-base text-gray-600
+Layout: Flexbox for hero, responsive grid for services
+Components: rounded-2xl, shadow-lg, p-6, clear section spacing (space-y-16)
+🧩 Animation & Interactivity
+Use Framer Motion for:
+Scroll-triggered fade-in or slide-up animations on each section
+Button hover and tap animations: hover:scale-105 and whileTap={{ scale: 0.95 }}
+Dummy booking form with dropdowns and a CTA button that animates on hover/tap
+⚙️ Technical Constraints
+No routing (SPA navigation not needed)
+No backend, database, or API integrations
+No TypeScript — use JavaScript only
+No external UI libraries except Tailwind and Framer Motion
+Mobile-first and fully responsive
+Clean, modular React components
+📦 Suggested Component Tree
+<App />
+ ┣ <Navbar />
+ ┣ <HeroSection />
+ ┣ <ServicesSection />
+ ┃  ┣ <ServiceCard />
+ ┣ <BioSection />
+ ┣ <TestimonialsSection />
+ ┣ <BookingSection />
+ ┣ <Footer />
+Let me know if you want me to now generate the full code scaffold, including the vite.config.js, tailwind.config.js, and React component files to drop into a project.
